@@ -39,9 +39,9 @@ app.use(session({
   }),
   cookie: { 
     secure: process.env.NODE_ENV === 'production',
-    httpOnly: false,
+    httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week
-    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
+    //sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax'
   }
 }));
 
@@ -69,10 +69,10 @@ app.use('/api/tasks', taskRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
-    //console.log(process.env.MONGODB_URI)
-    //console.log('MongoDB URI:', process.env.MONGODB_URI);
-   // console.log('NODE_ENV:', process.env.NODE_ENV);
-    //console.log('CLIENT_URL:', process.env.CLIENT_URL);
+    console.log(process.env.MONGODB_URI)
+    console.log('MongoDB URI:', process.env.MONGODB_URI);
+    console.log('NODE_ENV:', process.env.NODE_ENV);
+    console.log('CLIENT_URL:', process.env.CLIENT_URL);
 }
 );
 
@@ -81,6 +81,6 @@ app.listen(PORT, () => {
 //   console.log('Session store:', app.get('trust proxy'));
 // }, 5000);
 
-//module.exports = app;
+module.exports = app;
 
 
