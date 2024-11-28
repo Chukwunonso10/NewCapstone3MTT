@@ -24,10 +24,10 @@ app.use(cors({
 }))
 
 // Middleware
-//app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')))
-app.enable('trust proxy');
+app.enable(setting: 'trust proxy');
 
 // Session configuration
 app.use(session({
